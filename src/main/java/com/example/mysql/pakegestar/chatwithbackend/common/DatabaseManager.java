@@ -2,7 +2,7 @@ package com.example.mysql.pakegestar.chatwithbackend.common;
 
 import java.sql.*;
 
-public abstract class DatabaseManager {
+public abstract class DatabaseManager<M> {
     protected Connection createConnection() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         String url = "jdbc:mysql://db4free.net:3306/improve10x";

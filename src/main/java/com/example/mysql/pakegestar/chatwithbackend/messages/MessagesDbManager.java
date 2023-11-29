@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class MessagesDbManager extends DatabaseManager {
+public class MessagesDbManager extends DatabaseManager<Message> {
     public List<Message> getMessages() {
         try {
-            List<Message> messages = (List<Message>) runQuery("SELECT * FROM Message");
+            List<Message> messages =  runQuery("SELECT * FROM Message");
             return messages;
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
@@ -23,7 +23,7 @@ public class MessagesDbManager extends DatabaseManager {
 
 
     @Override
-    protected <T> T convertToObject(ResultSet resultSet) throws SQLException {
+    protected List<Message>  convertToObject(ResultSet resultSet) throws SQLException {
         List<Message> messages = new ArrayList<>();
         while (resultSet.next()) {
             Message message = new Message();
@@ -34,6 +34,5 @@ public class MessagesDbManager extends DatabaseManager {
             messages.add(message);
         }
         return messages;
-
     }
 }

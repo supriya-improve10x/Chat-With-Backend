@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class DbManager extends DatabaseManager {
+public class DbManager extends DatabaseManager<Template> {
 
     public List<Template> getTemplates() {
         try {
-            List<Template> templates = (List<Template>) runQuery("SELECT * FROM Template");
+            List<Template> templates =  runQuery("SELECT * FROM Template");
             return templates;
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
@@ -23,7 +23,7 @@ public class DbManager extends DatabaseManager {
     }
 
     @Override
-    protected Object convertToObject(ResultSet resultSet) throws SQLException {
+    protected List<Template> convertToObject(ResultSet resultSet) throws SQLException {
         List<Template> templates = new ArrayList<>();
         while (resultSet.next()) {
             Template template = new Template();
