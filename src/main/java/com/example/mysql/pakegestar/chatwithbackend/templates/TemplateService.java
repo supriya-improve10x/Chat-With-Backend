@@ -1,4 +1,4 @@
-package com.improve10x.chatwithbackend.templates;
+package com.example.mysql.pakegestar.chatwithbackend.templates;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

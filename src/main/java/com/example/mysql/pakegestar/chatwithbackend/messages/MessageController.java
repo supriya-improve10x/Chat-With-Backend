@@ -1,4 +1,4 @@
-package com.improve10x.chatwithbackend.messages;
+package com.example.mysql.pakegestar.chatwithbackend.messages;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;

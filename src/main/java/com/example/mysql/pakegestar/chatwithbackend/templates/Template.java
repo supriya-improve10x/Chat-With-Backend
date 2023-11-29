@@ -1,4 +1,4 @@
-package com.improve10x.chatwithbackend.templates;
+package com.example.mysql.pakegestar.chatwithbackend.templates;
 
 public class Template {
     public int templateId;

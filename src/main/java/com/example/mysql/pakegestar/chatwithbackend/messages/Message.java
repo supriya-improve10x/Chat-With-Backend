@@ -1,4 +1,4 @@
-package com.improve10x.chatwithbackend.messages;
+package com.example.mysql.pakegestar.chatwithbackend.messages;
 
 import org.springframework.stereotype.Service;
 

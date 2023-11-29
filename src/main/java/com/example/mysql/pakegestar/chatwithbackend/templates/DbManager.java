@@ -1,7 +1,6 @@
-package com.improve10x.chatwithbackend.templates;
+package com.example.mysql.pakegestar.chatwithbackend.templates;
 
-import com.improve10x.chatwithbackend.common.DatabaseManager;
-import com.improve10x.chatwithbackend.templates.Template;
+import com.example.mysql.pakegestar.chatwithbackend.common.DatabaseManager;
 import org.springframework.stereotype.Service;
 
 import java.sql.*;
@@ -13,8 +12,7 @@ public class DbManager extends DatabaseManager {
 
     public List<Template> getTemplates() {
         try {
-            ResultSet resultSet = runQuery("SELECT * FROM Template");
-            List<Template> templates = convertToTemplate(resultSet);
+            List<Template> templates = (List<Template>) runQuery("SELECT * FROM Template");
             return templates;
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
@@ -24,7 +22,8 @@ public class DbManager extends DatabaseManager {
 
     }
 
-    private List<Template> convertToTemplate(ResultSet resultSet) throws SQLException {
+    @Override
+    protected Object convertToObject(ResultSet resultSet) throws SQLException {
         List<Template> templates = new ArrayList<>();
         while (resultSet.next()) {
             Template template = new Template();
